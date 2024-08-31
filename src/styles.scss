@@ -1,15 +1,29 @@
-@import "bootstrap/scss/bootstrap-grid";
-// src/styles.scss
+// Functions first
+@import "../node_modules/bootstrap/scss/functions";
 
-// Importar as variáveis do Bootstrap
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
+// Variable overrides second
+$primary: #900;
+$enable-shadows: true;
+$prefix: "mo-";
 
-// Aqui você pode sobrescrever as variáveis do Bootstrap antes de importar o resto do Bootstrap
+// Required Bootstrap imports
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
 
-// Importar o restante do Bootstrap
-@import 'bootstrap/scss/bootstrap';
-
+// Optional components
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/nav";
+@import "../node_modules/bootstrap/scss/navbar";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/helpers";
+@import "../node_modules/bootstrap/scss/utilities/api";
+@import "../node_modules/bootstrap/scss/bootstrap";
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,300;1,900&display=swap');
 body{
@@ -30,3 +44,4 @@ body {
 main {
   flex: 1;
 }
+
