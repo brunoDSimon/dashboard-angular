@@ -1,0 +1,103 @@
+
+.form-group.hidden {
+  width: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+.custom-day.range, .custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+}
+.form-group{
+  width: 150px;
+}
+.form-control:focus {
+  border-bottom: 1px solid #312BC6 !important;
+  color: #312BC6;
+  box-shadow: none;
+  width: 100%;
+  border-radius: 0!important;
+}
+
+.input.form-control {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  &:focus{
+    border-bottom: 1px solid #ccc;
+    color: #501e50;
+    box-shadow: none;
+  }
+}
+
+.input-bar-slide {
+  .bar {
+    position: absolute !important;
+    display: inline-block;
+    width: 100%;
+    bottom: 0px !important;
+    z-index: 3 !important;
+    left: 0;
+    right: 0;
+    margin-left: -100%;
+  }
+
+  .bar:before {
+    content: '' !important;
+    height: 2px !important;
+    width: 0 !important;
+    bottom: 0px !important;
+    position: absolute !important;
+    background:  #DE3131 !important;
+    transition: 0.8s ease all !important;
+    -moz-transition:0.8s ease all !important;
+    -webkit-transition: 0.8s ease all !important;
+  }
+
+  .bar:before{
+    left: 100% !important;
+  }
+
+  input:focus ~ .bar:before{
+    width: 100% !important;
+  }
+  .input-group-append {
+    right: 0;
+    position: absolute;
+    top: 1px;
+    z-index: 4;
+    border-bottom: none;
+    background-color: transparent;
+    .input-group-text{
+      border-bottom: none;
+    }
+  }
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+div:focus {
+  outline: none;
+}
+
+*:-webkit-autofill {
+  background-color: transparent !important;
+}

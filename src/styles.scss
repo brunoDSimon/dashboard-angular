@@ -1,0 +1,32 @@
+@import "bootstrap/scss/bootstrap-grid";
+// src/styles.scss
+
+// Importar as variáveis do Bootstrap
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+
+// Aqui você pode sobrescrever as variáveis do Bootstrap antes de importar o resto do Bootstrap
+
+// Importar o restante do Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,300;1,900&display=swap');
+body{
+  font-family: 'Roboto', sans-serif;
+    width: 100%;
+    background-color: #fcf8ff;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}

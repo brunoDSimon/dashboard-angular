@@ -1,0 +1,61 @@
+<div class="row" (window:resize)="onResize($event)">
+  <div class="col-12">
+    <div ngbDropdown class="float-right">
+      <button class="btn btn-sm btn-outline-primary" id="dropdownMenuButton" ngbDropdownToggle type="button">
+          {{this.date.fromDate | date:'dd.MM.yy'}} -{{this.date.toDate | date:'dd.MM.yy'}}
+      </button>
+      <div ngbDropdownMenu  aria-labelledby="dropdownMenuButton" type="button">
+          <div class="dropdown-item">
+            <span (click)="periodoHoje($event)">Hoje</span>
+          </div>
+          <div class="dropdown-item">
+            <span (click)="alterar7dias($event)">7 Dias</span>
+          </div>
+          <div class="dropdown-item">
+            <span (click)="alterar15dias($event)"> 15 dias</span>
+          </div>
+          <div class="dropdown-item">
+            <span (click)="alterar30dias($event)"> 30 dias</span>
+          </div>
+          <div class="dropdown-item" >
+            <span> Outro periodo</span>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <input name="datepicker"
+              class="form-control  border-left-0 border-right-0 border-top-0 border-bottom-0 d-none"
+              ngbDatepicker
+              #datepicker="ngbDatepicker"
+              [autoClose]="'outside'"
+              (dateSelect)="onDateSelection($event)"
+              [displayMonths]="numberDisplay"
+              [dayTemplate]="t"
+              outsideDays="hidden"
+              [startDate]="fromDate!"
+              maxlength="10"
+              autocomplete="false"
+              >
+              <span>
+                {{this.date.fromDate | date:'dd.MM.yy'}} -{{this.date.toDate | date:'dd.MM.yy'}}
+                <em class="ic-calendario float-right" (click)="datepicker.toggle()"></em>
+              </span>
+
+              <ng-template #t let-date let-focused="focused">
+                <span class="custom-day"
+                      [class.focused]="focused"
+                      [class.range]="isRange(date)"
+                      [class.faded]="isHovered(date) || isInside(date)"
+                      (mouseenter)="hoveredDate = date"
+                      (mouseleave)="hoveredDate = null">
+                  {{ date.day }}
+                </span>
+              </ng-template>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
