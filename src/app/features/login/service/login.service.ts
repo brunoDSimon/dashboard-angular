@@ -1,22 +1,34 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, catchError, map, Observable } from "rxjs";
 import { Service } from "../../../shared/service/service";
 import { HttpClient } from "@angular/common/http";
-import { DateFormatPipe } from "ngx-moment";
-import { UsersDataService } from "../../../shared/service/UsersData.service";
+import { environment } from "../../../../environments/environment.development";
+import { DefaultResponse } from "../../../shared/models/default-response.mode";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService extends Service{
-  private _logado = new BehaviorSubject<boolean>(false);
 
  
 
-constructor(
-  private http: HttpClient,
-  private dateFormatPipe: DateFormatPipe,
-  private userData: UsersDataService,
-) {super() }
+  constructor(
+    private http: HttpClient,
+  ) {
+    super() 
+    }
+
+
+    public auth(body:any):Observable<any> {
+      return this.http.post<DefaultResponse>(environment.auth+`authentication`,body, {headers: this.headers}).pipe(
+        map((res) =>{
+          return this.filter(res)
+        },catchError((error: any) => {
+            throw this.handleError(error);
+          })
+        )
+      )
+    }
 
 }

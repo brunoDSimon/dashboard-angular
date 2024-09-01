@@ -5,6 +5,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { LoginComponent } from './componets/login.component';
 import { LoginRoutingModule } from './login-routing.module';
+import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -12,10 +13,11 @@ import { LoginRoutingModule } from './login-routing.module';
     LoginRoutingModule,
     FormsModule,
     ReactiveFormsModule,
- 
   ],
   declarations: [
     LoginComponent
+  ],
+  providers: [
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

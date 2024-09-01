@@ -16,19 +16,13 @@ export class Service {
   get headers() {
     return this._headers;
   }
-  // filter(response: DefaultResponse, calllback?: any) {
-  //   if ((response.data && response.status.value == "0") || (response.codigo && response.codigo.valor === '0')) {
-  //     return response.data;
-  //   } else if (response.status && response.status.messege) {
-  //     throw new Error(response.status.messege);
-  //   } else if (response.codigo && response.codigo.descricao) {
-  //     throw new Error(response.codigo.descricao);
-  //   } else if (response.access_token) {
-  //     return response;
-  //   } else {
-  //     throw new Error(Messege.erro_inesperado);
-  //   }
-  // }
+  filter(response: DefaultResponse, calllback?: any) {
+    if(response.status == 1 || response.status == '1') {
+      return response.data
+    } else {
+      throw new Error(Messege.erro_inesperado);
+    }
+  }
   handleError(err: any) {
     if (!(err instanceof Error)) {
       return new Error(Messege.erro_inesperado);
