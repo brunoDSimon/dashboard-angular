@@ -12,10 +12,30 @@
     .card-menor {
         width: 288px;
         height: 190px;
+        background-color: #FDFDFD;
     }
 
     .card-maior {
         width: 288px;
         height: 360px;
+        background-color: #FDFDFD;
     }
+    .card-header {
+       margin-left: 10px;
+       margin-right: 10px;
+       background-color: #FDFDFD;
+       color: #656575;
+       font-size: 18px;
+       font-family: 'inter';
+    }
+
+    .card-text {
+        font-size: 14px;
+        color: #656575;
+        font-weight: 300;
+        &.value {
+            color: #525256 !important;
+        }
+    }
+    
 }
