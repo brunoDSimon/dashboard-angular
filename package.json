@@ -22,6 +22,7 @@
     "@ng-bootstrap/ng-bootstrap": "^17.0.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "ngx-moment": "^6.0.2",
     "ngx-toastr": "^19.0.0",
     "ngx-webstorage": "^18.0.0",

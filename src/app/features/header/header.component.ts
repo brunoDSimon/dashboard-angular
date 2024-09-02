@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
   imports:[CommonModule]
 })
 export class HeaderComponent implements OnInit {
+  isExpanded = false;
+
  
   constructor(
     public loginService: LoginService
@@ -19,6 +21,16 @@ export class HeaderComponent implements OnInit {
   
   }
 
- 
+  toggleSidebar() {
+    this.isExpanded = !this.isExpanded;
+    const sidebar = document.querySelector('.sidebar');
+    if (sidebar) {
+      if (this.isExpanded) {
+        sidebar.classList.add('expanded');
+      } else {
+        sidebar.classList.remove('expanded');
+      }
+    }
+  }
 
 }
