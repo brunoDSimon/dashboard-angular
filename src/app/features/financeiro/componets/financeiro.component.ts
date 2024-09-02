@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./financeiro.component.scss']
 })
 export class FinanceiroComponent implements OnInit {
-
+  public data = new Date();
   constructor(
   ) { }
 

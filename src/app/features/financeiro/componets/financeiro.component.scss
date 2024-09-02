@@ -1,0 +1,21 @@
+.card-estastisticas {
+    background-color: #F8F7F1;
+    height: 100dvh;
+    .title{
+        color: #525256;
+        font-size: 20px;
+    }
+    .dia {
+        color: #A3A3A3;
+        font-size: 14px;
+    }
+    .card-menor {
+        width: 288px;
+        height: 190px;
+    }
+
+    .card-maior {
+        width: 288px;
+        height: 360px;
+    }
+}
