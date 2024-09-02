@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
     {
         path: 'financeiro',
         loadChildren: () => import('./features/financeiro/financeiro.module').then(m => m.FinanceiroModule),
-        canActivate: []
+        canActivate: [AuthGuard]
       },
       {
         path: 'login',

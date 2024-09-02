@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import {Messege} from '../models/messege';
-import { Response } from '../models/response';
 import { DefaultResponse } from '../models/default-response.mode';
 @Injectable({
   providedIn: 'root'

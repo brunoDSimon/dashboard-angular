@@ -3,7 +3,17 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
+import {provideNgxWebstorage, withLocalStorage, withNgxWebstorageConfig, withSessionStorage} from 'ngx-webstorage';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),provideHttpClient()]
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }), 
+    provideRouter(routes),provideHttpClient(),
+    provideNgxWebstorage(
+      withNgxWebstorageConfig({ separator: ':', caseSensitive: true }),
+			withLocalStorage(),
+			withSessionStorage(),
+    )
+  
+  ]
 };

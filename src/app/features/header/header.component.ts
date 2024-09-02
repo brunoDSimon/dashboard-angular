@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login/service/login.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  standalone: true
+  standalone: true,
+  imports:[CommonModule]
 })
 export class HeaderComponent implements OnInit {
-  private _open:boolean = false;
-  private _logado:boolean = false;
+ 
   constructor(
+    public loginService: LoginService
   ) { }
 
   ngOnInit() {
+  
   }
 
  

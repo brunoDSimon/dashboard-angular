@@ -15,13 +15,26 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private loginService:LoginService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.crieForm();
   }
+  
+  get auth() {
+    return this.loginService.isAuthenticated()
+  }
 
   ngOnInit() {
+    if(this.loginService?.dadosUser?.token != '' ){
+      this.router.navigate(['/financeiro']);
+      this.loginService.setLogin(true);
+    }else{
+      this.loginService.setLogin(false);
+    }
   }
+
+  
 
   get openError(){
     return this._openError
@@ -44,8 +57,9 @@ export class LoginComponent implements OnInit {
       "password":this.formGroup.get('password')?.value
     }
    this.loginService.auth(body).subscribe((res) => {
-    console.log(res)
-   },(error:Error) => {
+    this.loginService.setDadosUsuario(res?.acessToken)
+    this.router.navigate(['/financeiro']);
+    },(error:Error) => {
     console.log(error)
    })
   }

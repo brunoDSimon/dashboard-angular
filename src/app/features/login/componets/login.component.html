@@ -24,7 +24,7 @@
               <div class="forgot-password">
                   <a href="#">Forgot Password?</a>
               </div>
-              <button type="submit" class="login-btn" routerLink="/financeiro">Login Now</button>
+              <button type="submit" class="login-btn" [disabled]="formGroup.invalid">Login Now</button>
               <div class="divider">
                   <span>OR</span>
               </div>
