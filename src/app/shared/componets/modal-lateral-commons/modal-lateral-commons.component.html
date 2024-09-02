@@ -1,0 +1,9 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" #sidebar aria-labelledby="sidebarLabel" [attr.data-bs-backdrop]="backdropValue()">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="sidebarLabel">{{ title }}</h5>
+    <button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ng-content></ng-content>
+  </div>
+</div>

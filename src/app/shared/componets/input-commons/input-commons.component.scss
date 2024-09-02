@@ -1,0 +1,12 @@
+.form-control:invalid {
+    border-color: #dc3545;
+  }
+  
+  .form-control:valid {
+    border-color: #28a745;
+  }
+  
+  .invalid-feedback {
+    display: block;
+  }
+  
