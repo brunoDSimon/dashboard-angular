@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoginService } from '../login/service/login.service';
 import { CommonModule } from '@angular/common';
+import { AdicionarPedidoComponent } from '../financeiro/componets/adicionar-pedido/adicionar-pedido.component';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports:[CommonModule]
+  imports:[CommonModule,AdicionarPedidoComponent]
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild('pedido', { static: false }) pedido!: AdicionarPedidoComponent;
   isExpanded = false;
 
  
@@ -31,6 +33,11 @@ export class HeaderComponent implements OnInit {
         sidebar.classList.remove('expanded');
       }
     }
+  }
+
+
+  public abrirModalLateral() {
+    this.pedido.openSidebar()
   }
 
 }

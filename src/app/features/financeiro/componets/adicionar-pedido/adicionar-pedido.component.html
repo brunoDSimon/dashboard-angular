@@ -1,0 +1,59 @@
+<app-modal-lateral-commons #mySidebar title="Sidebar Title" subtitle="This is the subtitle">
+  <form [formGroup]="formGroup">
+    <app-input-commons
+      [formGroup]="formGroup"
+      control="remessa"
+      [required]="true"
+      type="text"
+      label="teste"
+      
+      >
+    </app-input-commons>
+
+    <app-input-commons
+      [formGroup]="formGroup"
+      control="valor"
+      [required]="true"
+      type="number">
+    </app-input-commons>
+
+    <app-input-commons
+      [formGroup]="formGroup"
+      control="quantidade"
+      [required]="true"
+      type="number">
+    </app-input-commons>
+
+    <app-input-commons
+      [formGroup]="formGroup"
+      control="modelo"
+      [required]="true"
+      type="text">
+    </app-input-commons>
+
+    <app-input-commons
+      [formGroup]="formGroup"
+      control="descricao"
+      [required]="true"
+      type="text">
+    </app-input-commons>
+
+    <app-input-commons
+      [formGroup]="formGroup"
+      control="usuario"
+      [required]="true"
+      type="text">
+    </app-input-commons>
+
+    <app-input-commons
+      [formGroup]="formGroup"
+      control="empresa"
+      [required]="true"
+      type="text">
+    </app-input-commons>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <button class="btn btn-secondary" (click)="mySidebar.close()">Close Sidebar</button>
+</app-modal-lateral-commons>
