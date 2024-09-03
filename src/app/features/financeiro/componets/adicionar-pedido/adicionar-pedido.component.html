@@ -48,20 +48,23 @@
             >
           </app-input-commons>
       
-          <app-input-commons
+          <app-input-select-commons
             [formGroup]="formGroup"
             control="usuario"
             [required]="true"
-            type="text"
+            [options]="test"
+            label="Funcionario"
             >
-          </app-input-commons>
+          </app-input-select-commons>
       
-          <app-input-commons
+          <app-input-select-commons
             [formGroup]="formGroup"
             control="empresa"
             [required]="true"
-            type="text">
-          </app-input-commons>
+            [options]="test"
+            label="Empresa"
+            >
+          </app-input-select-commons>
       
         </form>
       </div>

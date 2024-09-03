@@ -5,11 +5,12 @@ import { ModalLateralCommonsComponent } from '../../../../shared/componets/modal
 import { JsonPipe } from '@angular/common';
 import { FinanceiroService } from '../../service/financeiro.service';
 import { pedidoDTO } from '../models/pedido.model';
+import { InputSelectCommonsComponent } from "../../../../shared/componets/input-select-commons/input-select-commons.component";
 
 @Component({
   selector: 'app-adicionar-pedido',
   standalone: true,
-  imports: [ReactiveFormsModule, InputCommonsComponent, ModalLateralCommonsComponent, JsonPipe],
+  imports: [ReactiveFormsModule, InputCommonsComponent, ModalLateralCommonsComponent, JsonPipe, InputSelectCommonsComponent, InputSelectCommonsComponent],
   templateUrl: './adicionar-pedido.component.html',
   styleUrl: './adicionar-pedido.component.scss',
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
@@ -18,7 +19,9 @@ import { pedidoDTO } from '../models/pedido.model';
 export class AdicionarPedidoComponent implements OnInit {
   @ViewChild('mySidebar', { static: false }) sidebar!: ModalLateralCommonsComponent;
   formGroup: FormGroup = new FormGroup({});
-
+  public test: any = [
+    {value: 'teste', label: 'teste valor'}
+  ]
   openSidebar() {
     this.sidebar.open();
     this.criarForm()
