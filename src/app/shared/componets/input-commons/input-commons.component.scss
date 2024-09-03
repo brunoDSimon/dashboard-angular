@@ -1,5 +1,16 @@
 /* input-commons.component.scss */
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 .form-outline {
   position: relative;
   margin-top: 1.5rem;
@@ -21,7 +32,7 @@
 
 .form-control {
   border: 1px solid #ced4da;
-  border-radius: 0.375rem;
+  border-radius: 5px !important;
   padding: 1rem 1rem 0.5rem 2.5rem; /* Adjust for icon and floating label */
   padding-top: 1.5rem; /* Space for floating label */
   font-size: 1rem; /* Adjust font size */
@@ -82,4 +93,10 @@
   position: absolute;
   bottom: -1.25rem;
   left: 0.75rem;
+}
+
+
+.custom-tooltip {
+  --bs-tooltip-bg: var(--bd-violet-bg);
+  --bs-tooltip-color: var(--bs-white);
 }

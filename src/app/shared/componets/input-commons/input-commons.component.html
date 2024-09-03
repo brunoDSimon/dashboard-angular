@@ -27,9 +27,20 @@
       {{ label | titlecase }}
       <span *ngIf="required" class="text-danger">*</span>
     </label>
+    
   </div>
   <div class="character-count">
-    {{ controlValue.value.length }}/255 characters
+    {{ controlValue.value.length }}/{{maxlength}} characters 
+    <span class="float-right" *ngIf="toltip != '' ">
+      <i 
+        class="bi bi-question-lg"
+        data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        [ngbTooltip]="toltip"
+        container="body"
+        >
+      </i>
+    </span>
   </div>
   <div *ngIf="controlValue.invalid && (controlValue.touched || controlValue.dirty)" class="invalid-feedback">
     <ng-container *ngIf="controlValue.errors?.['required']">

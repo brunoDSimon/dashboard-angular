@@ -71,7 +71,7 @@ export class LoginService extends Service {
   }
 
   public auth(body: any): Observable<any> {
-    return this.http.post<DefaultResponse>(environment.auth + `authentication`, body, { headers: this.headers }).pipe(
+    return this.http.post<DefaultResponse>(environment.auth + `/authentication`, body, { headers: this.headers }).pipe(
       map((res) => this.filter(res)),
       catchError((error: any) => {
         throw this.handleError(error);

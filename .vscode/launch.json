@@ -16,5 +16,9 @@
       "preLaunchTask": "npm: test",
       "url": "http://localhost:9876/debug.html"
     }
-  ]
+  ],
+  
+  "editor.codeActionsOnSave": {
+    "source.removeUnusedImports": true
+  }
 }

@@ -1,59 +1,74 @@
-<app-modal-lateral-commons #mySidebar title="Sidebar Title" subtitle="This is the subtitle">
-  <form [formGroup]="formGroup">
-    <app-input-commons
-      [formGroup]="formGroup"
-      control="remessa"
-      [required]="true"
-      type="text"
-      label="teste"
+<app-modal-lateral-commons #mySidebar [title]="'Adicione um novo pedido'" subtitle="This is the subtitle">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-10 ofsset-1">
+        <form [formGroup]="formGroup">
+          <app-input-commons
+            [formGroup]="formGroup"
+            control="remessa"
+            [required]="true"
+            type="text"
+            label="Remessa"
+            >
+          </app-input-commons>
       
-      >
-    </app-input-commons>
-
-    <app-input-commons
-      [formGroup]="formGroup"
-      control="valor"
-      [required]="true"
-      type="number">
-    </app-input-commons>
-
-    <app-input-commons
-      [formGroup]="formGroup"
-      control="quantidade"
-      [required]="true"
-      type="number">
-    </app-input-commons>
-
-    <app-input-commons
-      [formGroup]="formGroup"
-      control="modelo"
-      [required]="true"
-      type="text">
-    </app-input-commons>
-
-    <app-input-commons
-      [formGroup]="formGroup"
-      control="descricao"
-      [required]="true"
-      type="text">
-    </app-input-commons>
-
-    <app-input-commons
-      [formGroup]="formGroup"
-      control="usuario"
-      [required]="true"
-      type="text">
-    </app-input-commons>
-
-    <app-input-commons
-      [formGroup]="formGroup"
-      control="empresa"
-      [required]="true"
-      type="text">
-    </app-input-commons>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-
-  <button class="btn btn-secondary" (click)="mySidebar.close()">Close Sidebar</button>
+          <app-input-commons
+            [formGroup]="formGroup"
+            control="valor"
+            [required]="true"
+            type="number"
+            label="Valor"
+            >
+          </app-input-commons>
+      
+          <app-input-commons
+            [formGroup]="formGroup"
+            control="quantidade"
+            [required]="true"
+            type="number"
+            label="Quantidade"
+            >
+          </app-input-commons>
+      
+          <app-input-commons
+            [formGroup]="formGroup"
+            control="modelo"
+            [required]="true"
+            type="text"
+            label="Modelo"
+            >
+          </app-input-commons>
+      
+          <app-input-commons
+            [formGroup]="formGroup"
+            control="descricao"
+            [required]="true"
+            type="text"
+            label="descrição"
+            >
+          </app-input-commons>
+      
+          <app-input-commons
+            [formGroup]="formGroup"
+            control="usuario"
+            [required]="true"
+            type="text"
+            >
+          </app-input-commons>
+      
+          <app-input-commons
+            [formGroup]="formGroup"
+            control="empresa"
+            [required]="true"
+            type="text">
+          </app-input-commons>
+      
+        </form>
+      </div>
+      <div class="d-flex justify-content-between footer">
+        <button type="button" class="btn btn-primary " type="submit" [disabled]="formGroup.invalid">Enviar</button>
+        <button type="button" class="btn btn-secondary" (click)="mySidebar.close()" type="reset">Fechar</button>
+      </div>
+    </div>
+  </div>
 </app-modal-lateral-commons>
