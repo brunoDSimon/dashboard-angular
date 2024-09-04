@@ -16,10 +16,10 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log(this.loginService.dadosUser)
-    const token = this.loginService.dadosUser.token;
 
     // Verifica se a URL da requisição está na lista de URLs excluídas
     const isExcludedUrl = this.excludedUrls.some(url => request.url.includes(url));
+    const token = this.loginService?.dadosUser?.token;
 
     // Se o token existir e a URL não estiver na lista de exceções, adicione o cabeçalho Authorization
     if (token && !isExcludedUrl) {

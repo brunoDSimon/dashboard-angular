@@ -24,6 +24,7 @@
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "chart.js": "^4.4.4",
+    "ng2-currency-mask": "^13.0.3",
     "ngx-moment": "^6.0.2",
     "ngx-toastr": "^19.0.0",
     "ngx-webstorage": "^18.0.0",

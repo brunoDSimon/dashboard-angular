@@ -1,0 +1,31 @@
+<div [formGroup]="formGroup" class="form-outline position-relative">
+    <div class="input-group">
+      <input
+        [id]="control"
+        [formControlName]="control"
+        type="text"  
+        class="form-control"
+        [ngClass]="{
+          'is-valid': controlValue.valid && (controlValue.touched || controlValue.dirty),
+          'is-invalid': controlValue.invalid && (controlValue.touched || controlValue.dirty)
+        }"
+        [attr.aria-required]="required ? 'true' : null"
+        [attr.aria-invalid]="controlValue.invalid && (controlValue.touched || controlValue.dirty) ? 'true' : null"
+        [attr.aria-describedby]="control + '-feedback'"
+        maxlength="255"
+        placeholder=" "
+        currencyMask 
+      />
+      <label [for]="control" class="form-label">
+        {{ label | titlecase }}
+        <span *ngIf="required" class="text-danger">*</span>
+      </label>
+      <div *ngIf="controlValue.invalid && (controlValue.touched || controlValue.dirty)" class="invalid-feedback">
+        <ng-container class="text-capitalize">
+          o campo {{label }} é obrigatório
+        </ng-container>
+        <!-- Add more error messages here as needed -->
+      </div>
+    </div>
+  </div>
+  

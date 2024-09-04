@@ -2,20 +2,20 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import { CurrencyMaskDirective, CurrencyMaskModule } from 'ng2-currency-mask';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 @Component({
-  selector: 'app-input-commons',
+  selector: 'app-input-currency',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgbTooltipModule,CurrencyMaskModule, CurrencyPipe],
-  templateUrl: './input-commons.component.html',
-  styleUrls: ['./input-commons.component.scss'],
+  imports: [CommonModule, ReactiveFormsModule, NgbTooltipModule, CurrencyMaskModule, CurrencyPipe],
+  templateUrl: './input-currency.component.html',
+  styleUrl: './input-currency.component.scss',
 })
-export class InputCommonsComponent {
+export class InputCurrencyComponent {
   @Input() formGroup!: FormGroup;
   @Input() control!: string;
   @Input() required: boolean = false;
-  @Input() type: string = 'text';
+  @Input() type: string = 'text';  // Ensure this is 'text' for currency input
   @Input() label: string = '';
   @Input() exibirLength: boolean = false;
   @Input() maxlength: number = 0;
@@ -23,6 +23,4 @@ export class InputCommonsComponent {
   get controlValue(): FormControl {
     return this.formGroup.get(this.control) as FormControl;
   }
-
-  
 }

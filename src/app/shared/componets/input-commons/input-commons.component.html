@@ -13,17 +13,17 @@
       [attr.aria-invalid]="controlValue.invalid && (controlValue.touched || controlValue.dirty) ? 'true' : null"
       [attr.aria-describedby]="control + '-feedback'"
       maxlength="255"
-      placeholder=" " 
+      placeholder=" "
     />
     <label [for]="control" class="form-label">
-      {{ label | titlecase  }}
+      {{ label | titlecase }}
       <span *ngIf="required" class="text-danger">*</span>
     </label>
     <div *ngIf="controlValue.invalid && (controlValue.touched || controlValue.dirty)" class="invalid-feedback">
-      <ng-container >
-        o campo {{label?.toLowerCase() }} é obrigatorio
+      <ng-container class="text-capitalize">
+        o campo {{label }} é obrigatório
       </ng-container>
       <!-- Add more error messages here as needed -->
     </div>
   </div>
-  </div>
+</div>

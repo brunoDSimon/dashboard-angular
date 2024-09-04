@@ -8,6 +8,7 @@ import { pedidoDTO } from '../models/pedido.model';
 import { InputSelectCommonsComponent } from "../../../../shared/componets/input-select-commons/input-select-commons.component";
 import { LoadingComponent } from '../../../loading/loading.component';
 import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+import { InputCurrencyComponent } from '../../../../shared/componets/input-currency/input-currency.component';
 
 @Component({
   selector: 'app-adicionar-pedido',
@@ -20,7 +21,8 @@ import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
     InputSelectCommonsComponent, 
     InputSelectCommonsComponent,
     LoadingComponent,
-    NgbToastModule
+    NgbToastModule,
+    InputCurrencyComponent
   ],
   templateUrl: './adicionar-pedido.component.html',
   styleUrl: './adicionar-pedido.component.scss',
