@@ -1,14 +1,17 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import {Subscription} from 'rxjs'
 import { EventEmitterService } from '../../service/event-emitter.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-loader',
   templateUrl: './loader.component.html',
-  styleUrls: ['./loader.component.scss']
+  styleUrls: ['./loader.component.scss'],
+  standalone: true,
+  imports:[CommonModule]
 })
 export class LoaderComponent implements OnInit, OnDestroy {
-  show = false;
-  private subscription
+  @Input()show? = false;
+  private subscription:any
   constructor(
   ) { }
 

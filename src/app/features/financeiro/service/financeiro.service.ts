@@ -29,7 +29,7 @@ export class FinanceiroService extends Service{
     );
    }
 
-   public filters():Observable<any> {
+   public filters():Observable<ResponseFilters> {
     return this.http.get<DefaultResponse>(environment.filters).pipe(
       map((res) => this.filter(res)),
       catchError((error: any) => {
@@ -41,4 +41,18 @@ export class FinanceiroService extends Service{
    
 
 
+}
+export interface Usuario {
+  value: string;
+  label: string;
+}
+
+export interface Empresa {
+  value: string;
+  label: string;
+}
+
+export interface ResponseFilters {
+  usuario: Usuario[];
+  empresa: Empresa[];
 }

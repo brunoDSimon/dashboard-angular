@@ -6,11 +6,22 @@ import { JsonPipe } from '@angular/common';
 import { FinanceiroService } from '../../service/financeiro.service';
 import { pedidoDTO } from '../models/pedido.model';
 import { InputSelectCommonsComponent } from "../../../../shared/componets/input-select-commons/input-select-commons.component";
+import { LoadingComponent } from '../../../loading/loading.component';
+import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-adicionar-pedido',
   standalone: true,
-  imports: [ReactiveFormsModule, InputCommonsComponent, ModalLateralCommonsComponent, JsonPipe, InputSelectCommonsComponent, InputSelectCommonsComponent],
+  imports: [
+    ReactiveFormsModule, 
+    InputCommonsComponent, 
+    ModalLateralCommonsComponent, 
+    JsonPipe, 
+    InputSelectCommonsComponent, 
+    InputSelectCommonsComponent,
+    LoadingComponent,
+    NgbToastModule
+  ],
   templateUrl: './adicionar-pedido.component.html',
   styleUrl: './adicionar-pedido.component.scss',
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
@@ -19,9 +30,10 @@ import { InputSelectCommonsComponent } from "../../../../shared/componets/input-
 export class AdicionarPedidoComponent implements OnInit {
   @ViewChild('mySidebar', { static: false }) sidebar!: ModalLateralCommonsComponent;
   formGroup: FormGroup = new FormGroup({});
-  public test: any = [
-    {value: 'teste', label: 'teste valor'}
-  ]
+  public carregando: boolean = false;
+
+  private _listEmpresas: Array<Empresa> = [];
+  private _listUsuarios: Array<Usuario> = [];
   openSidebar() {
     this.sidebar.open();
     this.criarForm()
@@ -38,6 +50,13 @@ export class AdicionarPedidoComponent implements OnInit {
     this.criarForm()
   }
 
+  get listEmpresas() {
+    return this._listEmpresas;
+  }
+
+  get listUsuarios() {
+    return this._listUsuarios;
+  }
 
   public criarForm() {
     this.formGroup = this.formBuilder.group({
@@ -56,6 +75,7 @@ export class AdicionarPedidoComponent implements OnInit {
     if(this.formGroup.invalid) {
       console.log('invalid')
     }
+    this.carregando = true;
     const fb = this.formGroup
     const body:pedidoDTO = {
       remessa: fb.get('remessa')?.value,
@@ -69,17 +89,41 @@ export class AdicionarPedidoComponent implements OnInit {
 
     this.financeiroService.criarPedido(body).subscribe((res) => {
       console.log(res)
+      this.carregando = false;
     },(error:Error) => {
       console.log(error)
+      this.carregando = false;
+
     })
   }
 
 
   public filters() {
+    this.carregando = true;
     this.financeiroService.filters().subscribe((res) => {
+      this._listEmpresas = res?.empresa;
+      this._listUsuarios = res?.usuario;
+      this.carregando = false;
+
       console.log(res)
     },(error:Error) => {
       console.log(error)
+      this.carregando = false;
+
     })
   }
+}
+export interface Usuario {
+  value: string;
+  label: string;
+}
+
+export interface Empresa {
+  value: string;
+  label: string;
+}
+
+export interface ResponseFilters {
+  usuario: Usuario[];
+  empresa: Empresa[];
 }
