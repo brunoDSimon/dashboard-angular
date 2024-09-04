@@ -9,7 +9,7 @@ import { EmpresasComponent } from './componets/empresas/empresas.component';
 const routes: Routes = [
   {path: '', component: FinanceiroComponent},
   {path: 'producao', component:ProducaoComponent},
-  {path: 'empresa', component:EmpresasComponent}
+  {path: 'empresas', component:EmpresasComponent}
 ];
 
 @NgModule({

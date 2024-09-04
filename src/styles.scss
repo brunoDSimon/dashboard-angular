@@ -30,11 +30,11 @@ $prefix: "mo-";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,300;1,900&display=swap');
 body{
   font-family: 'Roboto', sans-serif;
-    width: 100%;
     background-color: #fcf8ff;
     height: 100%;
     margin: 0;
     padding: 0;
+    margin-left: 80px !important;
 }
 
 body {
