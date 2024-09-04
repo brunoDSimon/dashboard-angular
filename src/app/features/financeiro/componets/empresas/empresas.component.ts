@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FinanceiroService } from '../../service/financeiro.service';
+import { AdicionarEmpresaComponent } from '../adicionar-empresa/adicionar-empresa.component';
 
 @Component({
   selector: 'app-empresas',
@@ -8,6 +9,7 @@ import { FinanceiroService } from '../../service/financeiro.service';
   styleUrl: './empresas.component.scss'
 })
 export class EmpresasComponent implements OnInit {
+  @ViewChild('empresa', { static: false }) empresa!: AdicionarEmpresaComponent;
 
   private _listaEmpresa: any = [];
   constructor(
@@ -31,4 +33,6 @@ export class EmpresasComponent implements OnInit {
       console.log(error)
     })
   }
+
+ 
 }

@@ -32,7 +32,7 @@
                     <div class="col-3 text-left">
                         <div class="row align-items-left ">
                             <div class="col-12">
-                                <button class="btn btn-warning">Editar</button>
+                                <button class="btn btn-warning" (click)="empresa?.openSidebar()">Editar</button>
                             </div>
                             <div class="col-12 mt-3">
                                 <button class="btn btn-danger">Desativar</button>
@@ -61,3 +61,5 @@
     "createdAt": "2024-07-13T19:05:00.409Z",
     "updatedAt": "2024-07-13T19:05:00.409Z"
 } -->
+
+<app-adicionar-empresa #empresa></app-adicionar-empresa>
