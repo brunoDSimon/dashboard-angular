@@ -25,6 +25,7 @@ export class AdicionarPedidoComponent implements OnInit {
   openSidebar() {
     this.sidebar.open();
     this.criarForm()
+    this.filters()
   }
 
   ngOnInit(): void {
@@ -67,6 +68,15 @@ export class AdicionarPedidoComponent implements OnInit {
     }
 
     this.financeiroService.criarPedido(body).subscribe((res) => {
+      console.log(res)
+    },(error:Error) => {
+      console.log(error)
+    })
+  }
+
+
+  public filters() {
+    this.financeiroService.filters().subscribe((res) => {
       console.log(res)
     },(error:Error) => {
       console.log(error)

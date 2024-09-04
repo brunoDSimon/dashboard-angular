@@ -29,5 +29,16 @@ export class FinanceiroService extends Service{
     );
    }
 
+   public filters():Observable<any> {
+    return this.http.get<DefaultResponse>(environment.filters).pipe(
+      map((res) => this.filter(res)),
+      catchError((error: any) => {
+        throw this.handleError(error);
+      })
+    );
+   }
+
+   
+
 
 }

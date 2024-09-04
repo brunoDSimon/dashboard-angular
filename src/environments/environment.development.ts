@@ -6,4 +6,5 @@ export const environment = {
   pedido: 'http://localhost:3000/pedido',
   exportacao: 'http://localhost:3000/exportacao',
   dashboards: 'http://localhost:3000/dashboards',
+  filters: 'http://localhost:3000/filters'
 };
